@@ -1,0 +1,201 @@
+/* ============================================================
+   AURELIA RESIDENCES — Global Styles
+   Premium architectural typographic system
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --color-charcoal: #1a1a1a;
+  --color-ivory: #f5f0ea;
+  --color-stone: #c8beb4;
+  --color-concrete: #8a8278;
+  --color-accent: #b8935a;
+  --color-dark: #0d0d0d;
+  --color-light: #faf7f4;
+
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
+
+/* ── Typography ── */
+.font-editorial { font-family: var(--font-editorial); }
+.font-display   { font-family: var(--font-display); }
+.font-sans      { font-family: var(--font-sans); }
+
+/* ── Section label ── */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ── Overflow hidden utility for clip animations ── */
+.clip-hidden { overflow: hidden; }
+
+/* ── Thin divider ── */
+.divider {
+  width: 1px;
+  background: var(--color-stone);
+  opacity: 0.3;
+}
+
+/* ── Focus styles ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Image defaults ── */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Lenis smooth scroll ── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ── Pin spacer fix for GSAP ── */
+.pin-spacer {
+  pointer-events: none;
+}
+
+/* ── Button base ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-ivory);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(248, 240, 234, 0.3);
+  color: var(--color-ivory);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ── Form input ── */
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(200, 190, 180, 0.3);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: 0.875rem 0;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder { color: var(--color-concrete); }
+
+.form-input:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Lightbox overlay ── */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,13,13,0.97);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
