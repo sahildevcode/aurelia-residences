@@ -107,16 +107,15 @@ export default function ProjectOverview() {
       aria-label="Project Overview"
       style={{ background: 'var(--color-dark)' }}
     >
-      {/* ── PINNED CINEMATIC TRANSITION (desktop) ── */}
+      {/* ── CINEMATIC TRANSITION (Desktop pinned, Mobile responsive) ── */}
       <div
         ref={pinnedRef}
-        className="relative w-full overflow-hidden"
-        style={{ height: '100dvh', minHeight: '600px' }}
+        className="relative w-full overflow-hidden min-h-[640px] md:h-[100dvh] flex flex-col justify-end md:block"
       >
-        {/* Image wrapper — starts full screen, transitions to right */}
+        {/* Image wrapper — starts full screen, transitions to right on desktop */}
         <div
           ref={imageWrapRef}
-          className="absolute top-0 left-0 w-full h-full overflow-hidden"
+          className="absolute inset-0 md:top-0 md:left-0 md:w-full md:h-full overflow-hidden"
           style={{ willChange: 'width, left, right' }}
         >
           <img
@@ -128,10 +127,13 @@ export default function ProjectOverview() {
             loading="lazy"
             decoding="async"
           />
-          {/* Gradient from left for text legibility */}
+          {/* Mobile dark vignette for crystal-clear readability */}
           <div
             className="absolute inset-0 md:hidden"
-            style={{ background: 'linear-gradient(to top, rgba(13,13,13,0.8) 0%, transparent 60%)' }}
+            style={{
+              background:
+                'linear-gradient(to top, rgba(13,13,13,0.96) 0%, rgba(13,13,13,0.85) 60%, rgba(13,13,13,0.35) 100%)',
+            }}
           />
           {/* Subtle color grade */}
           <div
@@ -140,23 +142,29 @@ export default function ProjectOverview() {
           />
         </div>
 
-        {/* Text panel — enters from left */}
+        {/* Text panel — full width on phone, 48% split panel on desktop */}
         <div
           ref={textPanelRef}
-          className="absolute left-0 top-0 h-full flex flex-col justify-center px-8 md:px-16 lg:px-20"
+          className="relative z-10 w-full px-6 pt-16 pb-14 md:p-0 md:absolute md:left-0 md:top-0 md:h-full md:flex md:flex-col md:justify-center md:px-16 lg:px-20 md:w-[min(48%,560px)]"
           style={{
-            width: 'min(48%, 560px)',
-            background: 'linear-gradient(to right, rgba(13,13,13,0.97) 70%, transparent 100%)',
             zIndex: 2,
           }}
         >
-          <div className="max-w-[440px]">
-            <SectionLabel number="01" text="The Residence" className="overview-text-child mb-8" />
+          {/* Desktop gradient overlay */}
+          <div
+            className="hidden md:block absolute inset-0 -z-10 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to right, rgba(13,13,13,0.97) 70%, transparent 100%)',
+            }}
+          />
+
+          <div className="w-full md:max-w-[440px]">
+            <SectionLabel number="01" text="The Residence" className="overview-text-child mb-4 md:mb-8" />
 
             <h2
-              className="overview-text-child font-editorial leading-none mb-6"
+              className="overview-text-child font-editorial leading-tight mb-4 md:mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                fontSize: 'clamp(2.1rem, 5vw, 4.5rem)',
                 fontWeight: 300,
                 color: 'var(--color-ivory)',
                 letterSpacing: '-0.01em',
@@ -167,32 +175,35 @@ export default function ProjectOverview() {
             </h2>
 
             <div
-              className="overview-text-child h-[1px] mb-6"
+              className="overview-text-child h-[1px] mb-5 md:mb-6"
               style={{ background: 'rgba(200,190,180,0.15)' }}
             />
 
-            <p className="overview-text-child font-sans text-sm text-[var(--color-stone)] leading-relaxed mb-8">
+            <p className="overview-text-child font-sans text-xs md:text-sm text-[var(--color-stone)] leading-relaxed mb-6 md:mb-8">
               Soni Financial Services represents a singular vision — where every line, material, 
               and vista has been considered with the precision of a master craftsman. 
               An architectural statement that will define a generation.
             </p>
 
-            <div className="overview-text-child grid grid-cols-2 gap-6 mb-10">
+            <div className="overview-text-child grid grid-cols-2 gap-3 md:gap-6 mb-7 md:mb-10">
               {[
                 { value: '[TBC]', label: 'Exclusive Residences' },
                 { value: '[TBC]', label: 'Floors of Living' },
                 { value: '3', label: 'Residence Collections' },
                 { value: '24/7', label: 'White-Glove Service' },
               ].map((stat) => (
-                <div key={stat.label}>
+                <div
+                  key={stat.label}
+                  className="p-3 md:p-0 rounded-xs border md:border-none border-[rgba(200,190,180,0.1)] bg-[rgba(13,13,13,0.5)] md:bg-transparent"
+                >
                   <div
-                    className="font-editorial text-3xl"
+                    className="font-editorial text-2xl md:text-3xl"
                     style={{ color: 'var(--color-accent)', fontWeight: 300 }}
                   >
                     {stat.value}
                   </div>
                   <div
-                    className="font-display text-[0.58rem] tracking-[0.18em] uppercase mt-1"
+                    className="font-display text-[0.52rem] md:text-[0.58rem] tracking-[0.16em] uppercase mt-1"
                     style={{ color: 'var(--color-concrete)' }}
                   >
                     {stat.label}
@@ -202,7 +213,7 @@ export default function ProjectOverview() {
             </div>
 
             <button
-              className="overview-text-child btn-primary"
+              className="overview-text-child btn-primary w-full md:w-auto justify-center"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               aria-label="Request a private viewing"
             >
@@ -211,30 +222,6 @@ export default function ProjectOverview() {
             </button>
           </div>
         </div>
-      </div>
-
-      {/* ── Mobile fallback — stacked layout ── */}
-      <div
-        className="md:hidden px-6 py-16"
-        style={{ background: 'var(--color-dark)' }}
-      >
-        <SectionLabel number="01" text="The Residence" className="overview-text-child mb-8" />
-        <h2
-          className="overview-text-child font-editorial mb-6"
-          style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 300, color: 'var(--color-ivory)' }}
-        >
-          A New Standard of <em style={{ color: 'var(--color-accent)' }}>Living</em>
-        </h2>
-        <p className="overview-text-child font-sans text-sm text-[var(--color-stone)] leading-relaxed mb-8">
-          Soni Financial Services represents a singular vision — where every line, material,
-          and vista has been considered with the precision of a master craftsman.
-        </p>
-        <button
-          className="overview-text-child btn-primary"
-          onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          Request a Private Viewing →
-        </button>
       </div>
     </section>
   );
