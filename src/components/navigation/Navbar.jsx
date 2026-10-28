@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { X, Menu } from 'lucide-react';
 import { NAV_LINKS, PROJECT } from '../../config/projectData';
+import logoImg from '../../assets/logo.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,16 +70,23 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className="text-[var(--color-ivory)] no-underline"
-            aria-label="Aurelia Residences — Home"
+            className="flex items-center gap-3.5 text-[var(--color-ivory)] no-underline"
+            aria-label="From Nobody — Home"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
-            <div className="font-editorial text-xl tracking-[0.3em] text-[var(--color-ivory)]">AURELIA</div>
-            <div
-              className="font-display text-[0.45rem] tracking-[0.4em] text-[var(--color-accent)] mt-[2px]"
-              style={{ letterSpacing: '0.4em', textTransform: 'uppercase' }}
-            >
-              RESIDENCES
+            <img
+              src={logoImg}
+              alt="From Nobody Logo"
+              className="w-9 h-9 rounded-full object-cover border border-[rgba(200,190,180,0.25)] shadow-md"
+            />
+            <div>
+              <div className="font-editorial text-lg md:text-xl tracking-[0.25em] text-[var(--color-ivory)]">FROM NOBODY</div>
+              <div
+                className="font-display text-[0.45rem] tracking-[0.35em] text-[var(--color-accent)]"
+                style={{ textTransform: 'uppercase' }}
+              >
+                RESIDENCES
+              </div>
             </div>
           </a>
 
@@ -159,7 +167,14 @@ function MobileMenu({ open, onClose, onNavClick }) {
     >
       {/* Close */}
       <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(200,190,180,0.08)]">
-        <div className="font-editorial text-xl tracking-[0.3em] text-[var(--color-ivory)]">AURELIA</div>
+        <div className="flex items-center gap-3">
+          <img
+            src={logoImg}
+            alt="From Nobody Logo"
+            className="w-8 h-8 rounded-full object-cover border border-[rgba(200,190,180,0.25)]"
+          />
+          <div className="font-editorial text-lg tracking-[0.25em] text-[var(--color-ivory)]">FROM NOBODY</div>
+        </div>
         <button
           onClick={onClose}
           className="bg-transparent border-none cursor-pointer text-[var(--color-ivory)] p-1"

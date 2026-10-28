@@ -157,7 +157,7 @@ export default function Architecture() {
             <div className="arch-text-child h-[1px] mb-6" style={{ background: 'rgba(200,190,180,0.15)' }} />
 
             <p className="arch-text-child font-sans text-sm text-[var(--color-stone)] leading-relaxed mb-6">
-              Conceived by a visionary architectural practice, Aurelia's facade is a 
+              Conceived by a visionary architectural practice, From Nobody's facade is a 
               dialogue between light and structure — a curtain of glass and precision-engineered 
               steel that transforms the tower into a living, breathing canvas as the sun moves through the day.
             </p>

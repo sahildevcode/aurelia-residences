@@ -1,6 +1,7 @@
 import React from 'react';
 import { PROJECT, NAV_LINKS } from '../../config/projectData';
 import { ArrowUp } from 'lucide-react';
+import logoImg from '../../assets/logo.jpg';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -18,11 +19,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[rgba(200,190,180,0.08)]">
           {/* Brand */}
           <div className="md:col-span-5 space-y-4">
-            <div className="font-editorial text-3xl tracking-[0.25em] text-[var(--color-ivory)]">
-              {PROJECT.name}
-            </div>
-            <div className="font-display text-[0.6rem] tracking-[0.35em] text-[var(--color-accent)] uppercase">
-              RESIDENCES
+            <div className="flex items-center gap-3.5">
+              <img
+                src={logoImg}
+                alt="From Nobody Logo"
+                className="w-10 h-10 rounded-full object-cover border border-[rgba(200,190,180,0.25)]"
+              />
+              <div>
+                <div className="font-editorial text-2xl md:text-3xl tracking-[0.25em] text-[var(--color-ivory)]">
+                  {PROJECT.name}
+                </div>
+                <div className="font-display text-[0.55rem] tracking-[0.35em] text-[var(--color-accent)] uppercase">
+                  RESIDENCES
+                </div>
+              </div>
             </div>
             <p className="font-sans text-xs text-[var(--color-concrete)] max-w-sm leading-relaxed mt-4">
               {PROJECT.tagline} An extraordinary synthesis of light, landscape, and architectural mastery.

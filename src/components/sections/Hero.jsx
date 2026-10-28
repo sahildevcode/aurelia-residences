@@ -119,7 +119,7 @@ export default function Hero() {
       ref={sectionRef}
       className="relative w-full overflow-hidden"
       style={{ height: '100dvh', minHeight: '600px' }}
-      aria-label="Aurelia Residences — Hero"
+      aria-label="From Nobody — Hero"
     >
       {/* ── Background Image ── */}
       <div className="absolute inset-0 overflow-hidden">
@@ -166,7 +166,7 @@ export default function Hero() {
 
         {/* Main Title */}
         <h1 className="font-editorial overflow-hidden" style={{ lineHeight: 0.9 }}>
-          {['AURELIA', 'RESIDENCES'].map((word, i) => (
+          {['FROM', 'NOBODY'].map((word, i) => (
             <div key={i} className="clip-hidden">
               <span
                 className="hero-title-line block"
