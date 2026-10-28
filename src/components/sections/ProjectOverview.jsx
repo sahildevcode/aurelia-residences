@@ -172,7 +172,7 @@ export default function ProjectOverview() {
             />
 
             <p className="overview-text-child font-sans text-sm text-[var(--color-stone)] leading-relaxed mb-8">
-              From Nobody represents a singular vision — where every line, material, 
+              Soni Financial Services represents a singular vision — where every line, material, 
               and vista has been considered with the precision of a master craftsman. 
               An architectural statement that will define a generation.
             </p>
@@ -226,7 +226,7 @@ export default function ProjectOverview() {
           A New Standard of <em style={{ color: 'var(--color-accent)' }}>Living</em>
         </h2>
         <p className="overview-text-child font-sans text-sm text-[var(--color-stone)] leading-relaxed mb-8">
-          From Nobody represents a singular vision — where every line, material,
+          Soni Financial Services represents a singular vision — where every line, material,
           and vista has been considered with the precision of a master craftsman.
         </p>
         <button

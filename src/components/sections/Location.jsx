@@ -30,7 +30,7 @@ export default function Location() {
             </h2>
 
             <p className="font-sans text-sm text-[var(--color-stone)] leading-relaxed">
-              Situated in an exceptionally discrete enclave, From Nobody commands effortless
+              Situated in an exceptionally discrete enclave, Soni Financial Services commands effortless
               connectivity while preserving absolute privacy away from urban commotion.
             </p>
 
@@ -106,7 +106,7 @@ export default function Location() {
                   <Compass size={32} />
                 </div>
                 <h4 className="font-editorial text-2xl text-[var(--color-ivory)] font-light">
-                  From Nobody Coordinates
+                  Soni Financial Services Coordinates
                 </h4>
                 <p className="font-sans text-xs text-[var(--color-concrete)] leading-relaxed">
                   Confidential location details and private preview routing are provided exclusively

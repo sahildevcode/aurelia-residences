@@ -166,7 +166,7 @@ export default function Hero() {
 
         {/* Main Title */}
         <h1 className="font-editorial overflow-hidden" style={{ lineHeight: 0.9 }}>
-          {['FROM', 'NOBODY'].map((word, i) => (
+          {['SONI', 'FINANCIAL'].map((word, i) => (
             <div key={i} className="clip-hidden">
               <span
                 className="hero-title-line block"

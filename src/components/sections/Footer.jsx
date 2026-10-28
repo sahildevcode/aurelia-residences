@@ -19,18 +19,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[rgba(200,190,180,0.08)]">
           {/* Brand */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-4">
               <img
                 src={logoImg}
-                alt="From Nobody Logo"
-                className="w-10 h-10 rounded-full object-cover border border-[rgba(200,190,180,0.25)]"
+                alt="Soni Financial Services Logo"
+                className="w-14 h-14 rounded-full object-cover border-2 border-[rgba(200,190,180,0.3)] shadow-lg"
               />
               <div>
-                <div className="font-editorial text-2xl md:text-3xl tracking-[0.25em] text-[var(--color-ivory)]">
-                  {PROJECT.name}
+                <div className="font-editorial text-2xl md:text-3xl tracking-[0.22em] text-[var(--color-ivory)] font-medium leading-none">
+                  SONI
                 </div>
-                <div className="font-display text-[0.55rem] tracking-[0.35em] text-[var(--color-accent)] uppercase">
-                  RESIDENCES
+                <div className="font-display text-[0.55rem] tracking-[0.3em] text-[var(--color-accent)] uppercase mt-1 font-semibold">
+                  FINANCIAL SERVICES
                 </div>
               </div>
             </div>

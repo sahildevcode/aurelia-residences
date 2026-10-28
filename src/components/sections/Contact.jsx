@@ -80,7 +80,7 @@ export default function Contact() {
             </h2>
 
             <p className="font-sans text-sm text-[var(--color-stone)] leading-relaxed">
-              Appointments to the From Nobody Presentation Gallery are hosted exclusively on a private,
+              Appointments to the Soni Financial Services Presentation Gallery are hosted exclusively on a private,
               one-to-one basis. We invite prospective owners to schedule an audience with our
               Senior Client Director.
             </p>
@@ -247,7 +247,7 @@ export default function Contact() {
                       htmlFor="consent"
                       className="font-sans text-[0.7rem] text-[var(--color-concrete)] cursor-pointer leading-relaxed"
                     >
-                      I confirm that my submitted details may be used by the From Nobody sales team
+                      I confirm that my submitted details may be used by the Soni Financial Services sales team
                       exclusively for coordinating private gallery appointments and confidential project briefings.
                     </label>
                   </div>

@@ -1,11 +1,11 @@
 // ============================================================
-// FROM NOBODY — Project Configuration
+// SONI FINANCIAL SERVICES — Project Configuration
 // Update all values here before going to production.
 // ============================================================
 
 export const PROJECT = {
-  name: "FROM NOBODY",
-  fullName: "FROM NOBODY",
+  name: "SONI",
+  fullName: "SONI FINANCIAL SERVICES",
   tagline: "WHERE ARCHITECTURE MEETS THE EXTRAORDINARY.",
   subTagline: "A new perspective on contemporary luxury living.",
   location: "PRIVATE RESIDENCES · MUMBAI, INDIA",
@@ -14,13 +14,13 @@ export const PROJECT = {
   country: "India",
   year: "2026",
   status: "NOW PRESENTING",
-  developer: "From Nobody Group",
+  developer: "Soni Financial Services",
   logo: "./logo.jpg",
 };
 
 export const CONTACT = {
   phone: "+91 98765 43210",
-  email: "enquiries@fromnobody.com",
+  email: "enquiries@sonifinancialservices.com",
   salesOffice: "Sales Gallery by appointment only",
   salesHours: "Mon–Sat: 10:00 AM – 7:00 PM",
   mapLink: "https://maps.google.com/?q=Mumbai,India",
@@ -38,7 +38,7 @@ export const NAV_LINKS = [
 // Premium Unsplash architectural images — replace with actual project photos
 export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=85&auto=format&fit=crop",
-  heroAlt: "From Nobody — Luxury tower exterior",
+  heroAlt: "Soni Financial Services — Luxury tower exterior",
 
   sectionA: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80&auto=format&fit=crop",
   sectionAlt: "Contemporary high-rise architecture with glass facade",

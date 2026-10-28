@@ -11,17 +11,25 @@ export default function Navbar() {
   const navRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     // Entrance animation
     const ctx = gsap.context(() => {
-      gsap.from(navRef.current, {
-        yPercent: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-        delay: 0.5,
-      });
+      gsap.fromTo(
+        navRef.current,
+        {
+          yPercent: -100,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          delay: 0.3,
+        }
+      );
     });
 
     // Scroll detection
@@ -50,42 +58,53 @@ export default function Navbar() {
     }
   };
 
+  const showBackground = isHovered || scrolled;
+
   return (
     <>
       <nav
         ref={navRef}
         role="navigation"
         aria-label="Main navigation"
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 pointer-events-auto"
         style={{
-          background: scrolled
-            ? 'rgba(13,13,13,0.95)'
-            : 'linear-gradient(to bottom, rgba(13,13,13,0.7) 0%, transparent 100%)',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(200,190,180,0.08)' : 'none',
-          padding: scrolled ? '1rem 2.5rem' : '1.75rem 2.5rem',
+          background: showBackground
+            ? isHovered
+              ? 'rgba(13, 13, 13, 0.88)'
+              : 'rgba(13, 13, 13, 0.72)'
+            : 'transparent',
+          backdropFilter: showBackground ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: showBackground ? 'blur(16px)' : 'none',
+          borderBottom: showBackground
+            ? '1px solid rgba(200, 190, 180, 0.12)'
+            : '1px solid transparent',
+          padding: scrolled ? '1rem 2.5rem' : '1.5rem 2.5rem',
         }}
       >
         <div className="flex items-center justify-between max-w-screen-2xl mx-auto">
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-3.5 text-[var(--color-ivory)] no-underline"
-            aria-label="From Nobody — Home"
+            className="flex items-center gap-3.5 text-[var(--color-ivory)] no-underline group"
+            aria-label="Soni Financial Services — Home"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
             <img
               src={logoImg}
-              alt="From Nobody Logo"
-              className="w-9 h-9 rounded-full object-cover border border-[rgba(200,190,180,0.25)] shadow-md"
+              alt="Soni Financial Services Logo"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-[rgba(200,190,180,0.35)] shadow-xl transition-transform duration-300 group-hover:scale-105"
             />
             <div>
-              <div className="font-editorial text-lg md:text-xl tracking-[0.25em] text-[var(--color-ivory)]">FROM NOBODY</div>
+              <div className="font-editorial text-xl md:text-2xl tracking-[0.22em] text-[var(--color-ivory)] font-medium leading-none">
+                SONI
+              </div>
               <div
-                className="font-display text-[0.45rem] tracking-[0.35em] text-[var(--color-accent)]"
+                className="font-display text-[0.48rem] md:text-[0.52rem] tracking-[0.28em] text-[var(--color-accent)] mt-1 font-semibold"
                 style={{ textTransform: 'uppercase' }}
               >
-                RESIDENCES
+                FINANCIAL SERVICES
               </div>
             </div>
           </a>
@@ -170,10 +189,13 @@ function MobileMenu({ open, onClose, onNavClick }) {
         <div className="flex items-center gap-3">
           <img
             src={logoImg}
-            alt="From Nobody Logo"
-            className="w-8 h-8 rounded-full object-cover border border-[rgba(200,190,180,0.25)]"
+            alt="Soni Financial Services Logo"
+            className="w-11 h-11 rounded-full object-cover border-2 border-[rgba(200,190,180,0.3)] shadow-md"
           />
-          <div className="font-editorial text-lg tracking-[0.25em] text-[var(--color-ivory)]">FROM NOBODY</div>
+          <div>
+            <div className="font-editorial text-lg tracking-[0.2em] text-[var(--color-ivory)] leading-none">SONI</div>
+            <div className="font-display text-[0.45rem] tracking-[0.25em] text-[var(--color-accent)] mt-0.5 uppercase">FINANCIAL SERVICES</div>
+          </div>
         </div>
         <button
           onClick={onClose}
